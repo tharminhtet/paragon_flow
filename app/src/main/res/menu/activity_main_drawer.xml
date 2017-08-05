@@ -3,17 +3,17 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:title="Home" />
-        <item
             android:id="@+id/nav_finance"
-            android:title="Finance" />
+            android:title="Finance"
+            android:icon="@drawable/finance"/>
         <item
             android:id="@+id/nav_staff"
-            android:title="Staff" />
+            android:title="Staff"
+            android:icon="@drawable/staff"/>
         <item
             android:id="@+id/nav_services"
-            android:title="Services" />
+            android:title="Services"
+            android:icon="@drawable/services"/>
     </group>
 
 </menu>
