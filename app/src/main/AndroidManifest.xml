@@ -19,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--Finance-->
         <activity android:name=".FinanceActivity"
             android:label="Finance"
             android:parentActivityName=".MainActivity">
@@ -37,6 +38,9 @@
                 android:value=".MainActivity">
             </meta-data>
         </activity>
+        <!--End of Finance-->
+
+        <!--Home (+) Button-->
         <activity android:name=".ManageFinanceActivity"
             android:label="Manage Finance"
             android:parentActivityName=".MainActivity">
@@ -47,6 +51,7 @@
             </meta-data>
 
         </activity>
+        <!--End of Home (+) Button-->
     </application>
 
 </manifest>
