@@ -8,4 +8,11 @@
         android:layout_height="wrap_content"
         android:text="Finance By Day"
         android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/total_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="total"
+        android:gravity="center"/>
 </LinearLayout>

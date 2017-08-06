@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".InputEditorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Staff"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/colorAccent"
+            android:textSize="18dp"/>
+
+        <EditText
+            android:id="@+id/edit_staff"
+            android:hint="Name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-light"
+            android:inputType="textCapWords"
+            android:paddingLeft="4dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Service"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/colorAccent"
+            android:textSize="18dp"/>
+
+        <EditText
+            android:id="@+id/edit_service"
+            android:hint="Hair Cut"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-light"
+            android:inputType="textCapWords"
+            android:paddingLeft="4dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Price"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/colorAccent"
+            android:textSize="18dp"/>
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:paddingLeft="4dp">
+
+            <EditText
+                android:id="@+id/edit_price"
+                android:hint="0"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-light"
+                android:inputType="number"/>
+
+            <!-- Units for weight (kg) -->
+            <TextView
+                android:id="@+id/label_price_unit"
+                android:text="kyats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingRight="15dp"
+                android:paddingTop="15dp"/>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+</LinearLayout>

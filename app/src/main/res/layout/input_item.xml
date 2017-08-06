@@ -21,7 +21,7 @@
         tools:text="Name"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
-        android:background="#B2BABB"
+        android:background="#CCD1D1"
         android:textSize="18dp"/>
 
     <TextView
@@ -32,7 +32,7 @@
         tools:text="Service"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
-        android:background="#CCD1D1"
+        android:background="#E5E8E8"
         android:textSize="18dp"/>
 
     <TextView
@@ -43,7 +43,7 @@
         tools:text="Price"
         android:gravity="end|center_vertical"
         android:paddingRight="20dp"
-        android:background="#E5E8E8"
+        android:background="#CCD1D1"
         android:textSize="18dp"/>
 
 

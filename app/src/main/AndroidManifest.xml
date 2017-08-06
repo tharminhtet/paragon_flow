@@ -52,6 +52,16 @@
 
         </activity>
         <!--End of Home (+) Button-->
+        <activity android:name=".InputEditorActivity"
+            android:label="Add Input"
+            android:parentActivityName=".ManageFinanceActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity">
+            </meta-data>
+
+        </activity>
     </application>
 
 </manifest>
