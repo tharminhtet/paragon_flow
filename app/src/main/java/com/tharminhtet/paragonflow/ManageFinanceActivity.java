@@ -25,41 +25,19 @@ import static com.tharminhtet.paragonflow.R.id.fab;
 
 public class ManageFinanceActivity extends AppCompatActivity {
 
-    private InputDbHelper mDbHelper;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manage_finance);
 
-//        final ArrayList<Input> inputs = new ArrayList<Input>();
-//        inputs.add(new Input("Kyaw Kyaw", "Hair Cut", 2000));
-//        inputs.add(new Input("Mg Mg", "Hair Dye", 15000));
-//        inputs.add(new Input("Wat Lay", "Shampoo", 3000));
-//
-//        inputs.add(new Input("Kyaw Kyaw", "Hair Cut", 2000));
-//        inputs.add(new Input("Mg Mg", "Hair Dye", 15000));
-//        inputs.add(new Input("Wat Lay", "Shampoo", 3000));
-//
-//        InputAdapter adapter = new InputAdapter(this, inputs);
-//        ListView listView = (ListView) findViewById(R.id.list);
-//        listView.setAdapter(adapter);
-
         FloatingActionButton addFinance = (FloatingActionButton) findViewById(R.id.AddFinance);
         addFinance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Context context = getApplicationContext();
-//                CharSequence text = "Haven't set the Activity yet!";
-//                int duration = Toast.LENGTH_SHORT;
-//
-//                Toast toast = Toast.makeText(context, text, duration);
-//                toast.show();
                 Intent addIntent = new Intent(ManageFinanceActivity.this, InputEditorActivity.class);
                 startActivity(addIntent);
             }
         });
-        mDbHelper = new InputDbHelper(this);
     }
 
     @Override
@@ -69,7 +47,6 @@ public class ManageFinanceActivity extends AppCompatActivity {
     }
 
     private void displayDataInfo() {
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
         String[] projection = {
                 InputContract.InputEntry._ID,
@@ -77,11 +54,9 @@ public class ManageFinanceActivity extends AppCompatActivity {
                 InputContract.InputEntry.COLUMN_SERVICE,
                 InputContract.InputEntry.COLUMN_PRICE};
 
-        Cursor cursor = db.query(
-            InputContract.InputEntry.TABLE_NAME,
+        Cursor cursor = getContentResolver().query(
+            InputContract.InputEntry.CONTENT_URI,
             projection,
-            null,
-            null,
             null,
             null,
             null);
@@ -104,11 +79,7 @@ public class ManageFinanceActivity extends AppCompatActivity {
                 String currentService = cursor.getString(serviceColumnIndex);
                 int currentPrice = cursor.getInt(priceColumnIndex);
 
-//                displayView.append(("\n" + currentID + " - " +
-//                        currentName + " - " +
-//                        currentBreed + " - " +
-//                        currentGender + " - " +
-//                        currentWeight));
+
                 inputs.add(new Input(currentStaff, currentService, currentPrice));
 
             }

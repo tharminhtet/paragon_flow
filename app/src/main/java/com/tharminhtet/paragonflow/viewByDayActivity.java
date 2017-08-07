@@ -1,10 +1,12 @@
 package com.tharminhtet.paragonflow;
 
+import android.content.ContentResolver;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.tharminhtet.paragonflow.data.InputContract;
@@ -16,30 +18,24 @@ import com.tharminhtet.paragonflow.data.InputDbHelper;
 
 public class viewByDayActivity extends AppCompatActivity{
 
-    private InputDbHelper mDbHelper;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.finance_by_day);
-
-        mDbHelper = new InputDbHelper(this);
+        calcTotal();
     }
 
     private void calcTotal(){
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
         String[] projection = {
                 InputContract.InputEntry.COLUMN_PRICE
         };
 
-        Cursor cursor = db.query(
-                InputContract.InputEntry.TABLE_NAME,   // The table to query
-                projection,            // The columns to return
-                null,                  // The columns for the WHERE clause
-                null,                  // The values for the WHERE clause
-                null,                  // Don't group the rows
-                null,                  // Don't filter by row groups
-                null);                   // The sort order
+        Cursor cursor = getContentResolver().query(
+                InputContract.InputEntry.CONTENT_URI,
+                projection,
+                null,
+                null,
+                null);
         TextView totalView = (TextView) findViewById(R.id.total_view);
         try {
             int priceColumnIndex = cursor.getColumnIndex(InputContract.InputEntry.COLUMN_PRICE);
@@ -49,6 +45,7 @@ public class viewByDayActivity extends AppCompatActivity{
                 int currentPrice = cursor.getInt(priceColumnIndex);
                 total += currentPrice;
             }
+            final String TAG = "MyActivity";
 
             totalView.setText(""+total);
         } finally {

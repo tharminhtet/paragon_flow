@@ -62,6 +62,10 @@
             </meta-data>
 
         </activity>
+        <provider
+            android:name=".data.InputProvider"
+            android:authorities="com.tharminhtet.paragonflow.data"
+            android:exported="false" />
     </application>
 
 </manifest>
