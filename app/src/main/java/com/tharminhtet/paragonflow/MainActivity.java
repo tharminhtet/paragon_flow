@@ -1,5 +1,6 @@
 package com.tharminhtet.paragonflow;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,12 +14,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private EditText mDayEditText;
+    private EditText mMonthEditText;
+    private EditText mYearEditText;
+
+    private static String dayString;
+    private static String monthString;
+    private static String yearString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -28,8 +41,28 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent manageFinanceIntent = new Intent(MainActivity.this, ManageFinanceActivity.class);
-                startActivity(manageFinanceIntent);
+
+                mDayEditText = (EditText) findViewById(R.id.edit_day);
+                mMonthEditText = (EditText) findViewById(R.id.edit_month);
+                mYearEditText = (EditText) findViewById(R.id.edit_year);
+
+                dayString = mDayEditText.getText().toString().trim();
+                monthString = mMonthEditText.getText().toString().trim();
+                yearString = mYearEditText.getText().toString().trim();
+
+                if (((dayString.length() == 0 ) || (monthString.length() == 0) || (yearString.length() == 0))) {
+                    Context context = getApplicationContext();
+                    CharSequence text = "Date not completed!";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }else{
+                    Intent manageFinanceIntent = new Intent(MainActivity.this, ManageFinanceActivity.class);
+                    manageFinanceIntent.putExtra("dayString", dayString);
+                    manageFinanceIntent.putExtra("monthString", monthString);
+                    manageFinanceIntent.putExtra("yearString", yearString);
+                    startActivity(manageFinanceIntent);
+                }
             }
         });
 

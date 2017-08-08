@@ -33,5 +33,10 @@ public final class InputContract {
         public final static String COLUMN_SERVICE = "service";
         public final static String COLUMN_PRICE = "price";
 
+        /* Date */
+        public final static String COLUMN_DAY = "day";
+        public final static String COLUMN_MONTH = "month";
+        public final static String COLUMN_YEAR = "year";
+
     }
 }

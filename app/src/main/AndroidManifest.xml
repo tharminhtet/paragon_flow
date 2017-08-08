@@ -58,7 +58,7 @@
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity">
+                android:value=".ManageFinanceActivity">
             </meta-data>
 
         </activity>

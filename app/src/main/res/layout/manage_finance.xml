@@ -4,13 +4,40 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
         android:id="@+id/date"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Choose Date"
-        android:gravity="center"
-        android:background="#2E86C1"/>
+        android:layout_height="80dp"
+        android:background="#D1C4E9"
+        android:orientation="horizontal">
+
+        <!--<EditText-->
+            <!--android:id="@+id/edit_day"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:hint="Day"-->
+            <!--android:gravity="center_horizontal|bottom"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:inputType="number"/>-->
+        <!--<EditText-->
+            <!--android:id="@+id/edit_month"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:hint="Month"-->
+            <!--android:gravity="center_horizontal|bottom"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:inputType="number"/>-->
+        <!--<EditText-->
+            <!--android:id="@+id/edit_year"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:hint="Year"-->
+            <!--android:gravity="center_horizontal|bottom"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:inputType="number"/>-->
+
+    </LinearLayout>
+
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
