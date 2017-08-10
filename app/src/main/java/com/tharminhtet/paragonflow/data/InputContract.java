@@ -38,5 +38,10 @@ public final class InputContract {
         public final static String COLUMN_MONTH = "month";
         public final static String COLUMN_YEAR = "year";
 
+        public final static String COLUMN_BRANCH = "branch";
+
+        public static final int BRANCH_1 = 1;
+        public static final int BRANCH_2 = 2;
+        public static final int BRANCH_UNKNOWN = 0;
     }
 }

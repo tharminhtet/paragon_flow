@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,8 +15,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.tharminhtet.paragonflow.data.InputContract;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -23,10 +29,13 @@ public class MainActivity extends AppCompatActivity
     private EditText mDayEditText;
     private EditText mMonthEditText;
     private EditText mYearEditText;
+    private Spinner mBranchSpinner;
 
     private static String dayString;
     private static String monthString;
     private static String yearString;
+
+    private int mBranch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +45,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mBranchSpinner = (Spinner) findViewById(R.id.spinner_branch);
+        setupSpinner();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +73,7 @@ public class MainActivity extends AppCompatActivity
                     manageFinanceIntent.putExtra("dayString", dayString);
                     manageFinanceIntent.putExtra("monthString", monthString);
                     manageFinanceIntent.putExtra("yearString", yearString);
+                    manageFinanceIntent.putExtra("branchInt", mBranch);
                     startActivity(manageFinanceIntent);
                 }
             }
@@ -74,6 +87,40 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void setupSpinner() {
+        // Create adapter for spinner. The list options are from the String array it will use
+        // the spinner will use the default layout
+        ArrayAdapter branchSpinnerAdapter = ArrayAdapter.createFromResource(this,
+                R.array.array_branch_options, android.R.layout.simple_spinner_item);
+
+        // Specify dropdown layout style - simple list view with 1 item per line
+        branchSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+
+        // Apply the adapter to the spinner
+        mBranchSpinner.setAdapter(branchSpinnerAdapter);
+
+        // Set the integer mSelected to the constant values
+        mBranchSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selection = (String) parent.getItemAtPosition(position);
+                if (!TextUtils.isEmpty(selection)) {
+                    if (selection.equals(getString(R.string.branch_1))) {
+                        mBranch = InputContract.InputEntry.BRANCH_1;
+                    }else if (selection.equals(getString(R.string.branch_2))) {
+                        mBranch = InputContract.InputEntry.BRANCH_2;
+                    }
+                }
+            }
+
+            // Because AdapterView is an abstract class, onNothingSelected must be defined
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                mBranch = InputContract.InputEntry.BRANCH_UNKNOWN;
+            }
+        });
     }
 
     @Override

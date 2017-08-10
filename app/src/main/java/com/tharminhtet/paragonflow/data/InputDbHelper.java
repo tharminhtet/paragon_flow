@@ -25,7 +25,8 @@ public class InputDbHelper extends SQLiteOpenHelper {
                 + InputContract.InputEntry.COLUMN_PRICE + " INTEGER NOT NULL, "
                 + InputContract.InputEntry.COLUMN_DAY + " INTEGER NOT NULL, "
                 + InputContract.InputEntry.COLUMN_MONTH + " INTEGER NOT NULL, "
-                + InputContract.InputEntry.COLUMN_YEAR + " INTEGER NOT NULL );";
+                + InputContract.InputEntry.COLUMN_YEAR + " INTEGER NOT NULL, "
+                + InputContract.InputEntry.COLUMN_BRANCH + " INTEGER NOT NULL );";
 
         db.execSQL(SQL_CREATE_INPUT_TABLE);
     }

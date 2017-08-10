@@ -32,6 +32,7 @@ public class InputEditorActivity extends AppCompatActivity {
     String dayString;
     String monthString;
     String yearString;
+    int mBranch;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class InputEditorActivity extends AppCompatActivity {
         dayString = in.getExtras().getString("dayString");
         monthString = in.getExtras().getString("monthString");
         yearString = in.getExtras().getString("yearString");
+        mBranch = in.getExtras().getInt("branchInt");
 
         mStaffEditText = (EditText) findViewById(R.id.edit_staff);
         mServiceEditText = (EditText) findViewById(R.id.edit_service);
@@ -71,6 +73,7 @@ public class InputEditorActivity extends AppCompatActivity {
         values.put(InputContract.InputEntry.COLUMN_DAY, day);
         values.put(InputContract.InputEntry.COLUMN_MONTH, month);
         values.put(InputContract.InputEntry.COLUMN_YEAR, year);
+        values.put(InputContract.InputEntry.COLUMN_BRANCH, mBranch);
 
         Uri newUri = getContentResolver().insert(InputContract.InputEntry.CONTENT_URI, values);
 

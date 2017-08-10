@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tharminhtet.paragonflow.data.InputContract;
@@ -30,6 +31,7 @@ public class ManageFinanceActivity extends AppCompatActivity {
     String dayString;
     String monthString;
     String yearString;
+    int mBranch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,12 @@ public class ManageFinanceActivity extends AppCompatActivity {
         dayString = extras.getString("dayString");
         monthString = extras.getString("monthString");
         yearString = extras.getString("yearString");
+        mBranch = extras.getInt("branchInt");
+
+        TextView branchView = (TextView) findViewById(R.id.info_branch);
+        TextView dateView = (TextView) findViewById(R.id.info_date);
+        branchView.setText("Branch" + mBranch);
+        dateView.setText(dayString + "/" + monthString + "/" + yearString);
 
         displayDataInfo();
 
@@ -62,6 +70,7 @@ public class ManageFinanceActivity extends AppCompatActivity {
                     addIntent.putExtra("dayString", dayString);
                     addIntent.putExtra("monthString", monthString);
                     addIntent.putExtra("yearString", yearString);
+                    addIntent.putExtra("branchInt", mBranch);
                     startActivity(addIntent);
                 }
 
@@ -87,9 +96,10 @@ public class ManageFinanceActivity extends AppCompatActivity {
 
         String selection = InputContract.InputEntry.COLUMN_DAY + " =? AND "
                         + InputContract.InputEntry.COLUMN_MONTH + " =? AND "
-                        + InputContract.InputEntry.COLUMN_YEAR + " =? " ;
+                        + InputContract.InputEntry.COLUMN_YEAR + " =? AND "
+                        + InputContract.InputEntry.COLUMN_BRANCH + " =? ";
 
-        String[] selectionArgs = new String[]{dayString, monthString, yearString};
+        String[] selectionArgs = new String[]{dayString, monthString, yearString, Integer.toString(mBranch)};
 
 
         Cursor cursor = getContentResolver().query(
