@@ -43,5 +43,17 @@ public class FinanceActivity extends AppCompatActivity{
                 startActivity(viewByDayIntent);
             }
         });
+
+        TextView viewByMonth = (TextView) findViewById(R.id.viewByMonth);
+
+        viewByMonth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewByMonthIntent = new Intent(FinanceActivity.this, ViewByMonthActivity.class);
+                viewByMonthIntent.putExtra("monthString", monthString);
+                viewByMonthIntent.putExtra("yearString", yearString);
+                startActivity(viewByMonthIntent);
+            }
+        });
     }
 }

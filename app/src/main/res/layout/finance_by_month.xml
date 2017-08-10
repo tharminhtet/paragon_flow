@@ -4,10 +4,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/finance_day_date"
+        android:id="@+id/finance_month_date"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="12/5/2017"
+        android:text="5/2017"
         android:gravity="center"
         android:textSize="25dp"
         android:textColor="@color/colorAccent"
@@ -23,7 +23,7 @@
         android:textSize="30dp"/>
 
     <TextView
-        android:id="@+id/branch_1_total_view"
+        android:id="@+id/branch_1_month_total_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Branch 1 Total"
@@ -31,7 +31,7 @@
         android:textSize="20dp"
         android:layout_margin="10dp"/>
     <TextView
-        android:id="@+id/branch_2_total_view"
+        android:id="@+id/branch_2_month_total_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Branch 2 Total"
@@ -40,7 +40,7 @@
         android:layout_margin="10dp"/>
 
     <TextView
-        android:id="@+id/staff_income_view"
+        android:id="@+id/staff_income_month_view"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_margin="15dp"

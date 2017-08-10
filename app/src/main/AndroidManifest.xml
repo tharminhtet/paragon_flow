@@ -30,12 +30,20 @@
             </meta-data>
         </activity>
         <activity android:name=".viewByDayActivity"
-            android:label="Finance By Day"
+            android:label="Daily Finance"
             android:parentActivityName=".FinanceActivity">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity">
+            </meta-data>
+        </activity>
+        <activity android:name=".ViewByMonthActivity"
+            android:label="Monthly Finance"
+            android:parentActivityName=".FinanceActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FinanceActivity">
             </meta-data>
         </activity>
         <!--End of Finance-->
