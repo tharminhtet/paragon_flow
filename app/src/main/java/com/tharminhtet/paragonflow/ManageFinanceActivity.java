@@ -20,7 +20,7 @@ import com.tharminhtet.paragonflow.data.InputDbHelper;
 
 import java.util.ArrayList;
 
-import static com.tharminhtet.paragonflow.R.id.fab;
+import static com.tharminhtet.paragonflow.R.id.fab_create;
 
 /**
  * Created by Thar Min Htet on 8/5/2017.
@@ -47,7 +47,7 @@ public class ManageFinanceActivity extends AppCompatActivity {
 
         TextView branchView = (TextView) findViewById(R.id.info_branch);
         TextView dateView = (TextView) findViewById(R.id.info_date);
-        branchView.setText("Branch" + mBranch);
+        branchView.setText("Branch " + mBranch);
         dateView.setText(dayString + "/" + monthString + "/" + yearString);
 
         displayDataInfo();

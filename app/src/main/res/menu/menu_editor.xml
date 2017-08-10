@@ -7,7 +7,7 @@
     <item
         android:id="@+id/action_save"
         android:title="Save"
-        android:icon="@drawable/plus"
+        android:icon="@drawable/checkmark"
         app:showAsAction="always" />
 
     <item

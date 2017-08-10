@@ -20,14 +20,25 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <include layout="@layout/content_main"
+        android:id="@+id/include2" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/plus" />
+        app:srcCompat="@drawable/create" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_finance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_anchor="@+id/include2"
+        app:layout_anchorGravity="bottom|left"
+        app:srcCompat="@drawable/finance_book" />
 
 </android.support.design.widget.CoordinatorLayout>

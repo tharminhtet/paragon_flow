@@ -23,6 +23,8 @@ import android.widget.Toast;
 
 import com.tharminhtet.paragonflow.data.InputContract;
 
+import static com.tharminhtet.paragonflow.R.id.fab_create;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -49,8 +51,8 @@ public class MainActivity extends AppCompatActivity
         mBranchSpinner = (Spinner) findViewById(R.id.spinner_branch);
         setupSpinner();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fabCreate = (FloatingActionButton) findViewById(R.id.fab_create);
+        fabCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -75,6 +77,34 @@ public class MainActivity extends AppCompatActivity
                     manageFinanceIntent.putExtra("yearString", yearString);
                     manageFinanceIntent.putExtra("branchInt", mBranch);
                     startActivity(manageFinanceIntent);
+                }
+            }
+        });
+
+        FloatingActionButton fabFinance = (FloatingActionButton) findViewById(R.id.fab_finance);
+        fabFinance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDayEditText = (EditText) findViewById(R.id.edit_day);
+                mMonthEditText = (EditText) findViewById(R.id.edit_month);
+                mYearEditText = (EditText) findViewById(R.id.edit_year);
+
+                dayString = mDayEditText.getText().toString().trim();
+                monthString = mMonthEditText.getText().toString().trim();
+                yearString = mYearEditText.getText().toString().trim();
+
+                if (((dayString.length() == 0 ) || (monthString.length() == 0) || (yearString.length() == 0))) {
+                    Context context = getApplicationContext();
+                    CharSequence text = "Date not completed!";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }else{
+                    Intent FinanceIntent = new Intent(MainActivity.this, FinanceActivity.class);
+                    FinanceIntent.putExtra("dayString", dayString);
+                    FinanceIntent.putExtra("monthString", monthString);
+                    FinanceIntent.putExtra("yearString", yearString);
+                    startActivity(FinanceIntent);
                 }
             }
         });
